@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Madu Alves | Nutricionista em Brasília</title>
+<meta name="description" content="Nutrição clínica e esportiva baseada em ciência. Emagrecimento, hipertrofia, performance e saúde. Atendimento presencial na Asa Norte, Brasília, e online.">
+<link rel="icon" href="img/monograma.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --creme:#FBF7EC;      /* fundo da logo */
+    --areia:#F3EADA;      /* cards */
+    --areia-2:#EADCC4;
+    --dourado:#BE9A61;    /* monograma */
+    --dourado-claro:#D9BF8F;
+    --terracota:#AE6945;  /* "MADU ALVES" */
+    --terracota-esc:#8E5233;
+    --cafe:#3A2A20;       /* texto / card escuro */
+    --texto:#4A3A2E;
+    --suave:#86735F;
+    --raio:28px;
+    --serif:"Cormorant Garamond", Georgia, serif;
+    --sans:"DM Sans", system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--creme);color:var(--texto);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1240px,100% - 48px);margin-inline:auto}
+  h1,h2,h3,b{font-variant-numeric:lining-nums}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--cafe);line-height:1.05;letter-spacing:-.01em}
+  h1 em,h2 em{font-style:italic;color:var(--terracota)}
+  h2{font-size:clamp(40px,5vw,60px)}
+  .lead{color:var(--suave);max-width:520px}
+  .center{text-align:center}.center .lead{margin-inline:auto}
+  section{padding:110px 0}
+  .eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--dourado);font-weight:600;margin-bottom:18px}
+  .eyebrow::before{content:"";width:22px;height:1px;background:currentColor}
+
+  /* botões */
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--terracota);color:#fff;padding:15px 26px;border-radius:999px;font-weight:500;font-size:15px;transition:.25s}
+  .btn:hover{background:var(--terracota-esc);transform:translateY(-2px)}
+  .btn svg{width:16px;height:16px}
+  .btn.claro{background:var(--creme);color:var(--cafe)}
+  .btn.claro:hover{background:#fff}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:50;background:rgba(251,247,236,.88);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:.3s}
+  header.rolou{border-color:var(--areia-2)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:86px}
+  .nav .logo img{height:46px;width:auto}
+  .nav ul{display:flex;gap:34px;list-style:none;font-size:15px}
+  .nav ul a{color:var(--texto);transition:.2s}
+  .nav ul a:hover{color:var(--terracota)}
+  .menu-btn{display:none;background:none;border:0;cursor:pointer;color:var(--cafe)}
+
+  /* HERO */
+  .hero{padding:18px 0 40px}
+  .hero-grid{display:grid;grid-template-columns:2.3fr 1fr;gap:20px}
+  .hero-main{position:relative;background:#F1E6D3;border-radius:var(--raio);overflow:hidden;min-height:600px;display:flex}
+  .hero-main .txt{position:relative;z-index:2;padding:56px 0 44px 52px;width:55%;display:flex;flex-direction:column}
+  .hero-main h1{font-size:clamp(40px,3.6vw,54px);max-width:400px}
+  .hero-main p{margin:22px 0 30px;color:var(--suave);max-width:390px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:28px;max-width:380px}
+  .chip{background:rgba(255,255,255,.75);border-radius:999px;padding:7px 14px;font-size:13px;display:inline-flex;gap:7px;align-items:center}
+  .chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--dourado)}
+  .hero-main .foto{position:absolute;right:0;bottom:0;top:0;width:46%}
+  .hero-main .foto{overflow:hidden}
+  .hero-main .foto img{width:118%;max-width:none;height:100%;margin-left:-16%;object-fit:cover;object-position:50% 18%}
+  .hero-main .foto::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#F1E6D3 0%,#F1E6D3 5%,rgba(241,230,211,.6) 20%,rgba(241,230,211,0) 45%);z-index:1}
+  .selo{position:absolute;z-index:3;left:54%;top:46px;transform:translateX(-50%);width:104px;height:104px;border-radius:50%;background:var(--creme);display:grid;place-items:center;box-shadow:0 10px 30px rgba(58,42,32,.12)}
+  .selo img{width:52px}
+  .selo svg{position:absolute;inset:0;animation:gira 22s linear infinite}
+  @keyframes gira{to{transform:rotate(360deg)}}
+
+  .hero-side{display:grid;grid-template-rows:auto 1fr auto;gap:20px}
+  .card{border-radius:var(--raio);padding:26px}
+  .card-nota{background:var(--dourado);color:#fff}
+  .avatares{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .avatares .fotos{display:flex}
+  .avatares .fotos span{width:40px;height:40px;border-radius:50%;border:2px solid var(--dourado);margin-left:-10px;background-size:cover;background-position:center}
+  .avatares .fotos span:first-child{margin-left:0}
+  .estrelas{color:#fff;letter-spacing:2px;font-size:15px}
+  .card-nota strong{display:block;font-size:14px;font-weight:600}
+  .card-nota p{font-size:14px;opacity:.95}
+  .card-foto{padding:0;overflow:hidden;min-height:220px;position:relative}
+  .card-foto img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+  .card-foto span{position:absolute;left:16px;bottom:16px;background:rgba(251,247,236,.92);font-size:13px;padding:6px 13px;border-radius:999px}
+  .card-escuro{background:var(--cafe);color:var(--areia);display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card-escuro b{font-family:var(--serif);font-weight:500;font-size:40px;color:#fff;display:block;line-height:1}
+  .card-escuro small{font-size:13px;opacity:.75;display:block;margin-top:8px;line-height:1.4}
+
+  /* SOBRE + galeria */
+  .sobre-top{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:56px}
+  .sobre-top .lead{max-width:none}
+  .assinatura{display:flex;align-items:center;gap:16px;margin-top:28px}
+  .assinatura img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top}
+  .assinatura b{display:block;color:var(--cafe);font-weight:600}
+  .assinatura small{color:var(--suave)}
+  .galeria{display:flex;gap:18px;align-items:center;overflow:hidden;padding:0 24px}
+  .galeria figure{flex:1;border-radius:24px;overflow:hidden;min-width:0}
+  .galeria figure img{width:100%;height:100%;object-fit:cover}
+  .galeria figure:nth-child(1),.galeria figure:nth-child(5){height:300px}
+  .galeria figure:nth-child(2),.galeria figure:nth-child(4){height:370px}
+  .galeria figure:nth-child(3){height:440px;flex:1.2}
+
+  /* SERVIÇOS */
+  .servicos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+  .servico{background:var(--areia);border-radius:24px;padding:34px 30px 36px;transition:.3s}
+  .servico:hover{background:var(--areia-2);transform:translateY(-4px)}
+  .servico .ic{width:46px;height:46px;color:var(--terracota);margin-bottom:46px}
+  .servico h3{font-size:28px;margin-bottom:10px}
+  .servico p{font-size:15px;color:var(--suave)}
+
+  /* NÚMEROS */
+  .numeros{background:var(--terracota);border-radius:var(--raio);padding:64px 56px;display:grid;grid-template-columns:repeat(4,1fr);gap:30px;color:#fff;position:relative;overflow:hidden}
+  .numeros::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;background:url(img/monograma.png) center/contain no-repeat;opacity:.08;filter:brightness(10)}
+  .numeros b{font-family:var(--serif);font-weight:500;font-size:62px;line-height:1;display:block}
+  .numeros small{display:block;margin-top:12px;font-size:15px;opacity:.85;max-width:200px}
+
+  /* POR QUE */
+  .porque{display:grid;grid-template-columns:1.05fr 1fr;gap:20px;align-items:stretch}
+  .porque-txt{padding-top:20px}
+  .difs{display:grid;grid-template-columns:1fr 1fr;gap:34px 30px;margin-top:44px;background:var(--areia);border-radius:var(--raio);padding:40px}
+  .dif .ic{width:32px;height:32px;color:var(--terracota);margin-bottom:14px}
+  .dif h3{font-family:var(--sans);font-size:17px;font-weight:600;letter-spacing:0;margin-bottom:6px}
+  .dif p{font-size:14px;color:var(--suave);line-height:1.55}
+  .porque-foto{border-radius:var(--raio);overflow:hidden;position:relative;min-height:560px}
+  .porque-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+  .porque-foto .tag{position:absolute;left:22px;bottom:22px;right:22px;background:rgba(251,247,236,.94);border-radius:20px;padding:18px 22px;display:flex;gap:14px;align-items:center}
+  .porque-foto .tag img{position:static;width:42px;height:auto}
+  .porque-foto .tag p{font-size:14px;color:var(--texto)}
+  .porque-foto .tag b{color:var(--cafe)}
+
+  /* CONSULTÓRIO */
+  .consultorio{background:var(--areia);border-radius:var(--raio);padding:80px 56px}
+  .salas{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:52px}
+  .sala figure{border-radius:22px;overflow:hidden;aspect-ratio:3/4;background:var(--areia-2)}
+  .sala img{width:100%;height:100%;object-fit:cover;transition:.6s}
+  .sala:hover img{transform:scale(1.05)}
+  .sala h3{font-family:var(--sans);font-size:17px;font-weight:600;margin-top:16px;letter-spacing:0}
+  .sala p{font-size:14px;color:var(--suave)}
+  .endereco{display:flex;justify-content:center;gap:10px;align-items:center;margin-top:44px;font-size:15px;color:var(--texto)}
+  .endereco svg{width:18px;color:var(--terracota);flex:none}
+
+  /* DEPOIMENTOS */
+  .depo{display:grid;grid-template-columns:.8fr 2fr;gap:50px;align-items:start}
+  .setas{display:flex;gap:10px;margin-top:34px}
+  .setas button{width:48px;height:48px;border-radius:14px;border:1px solid var(--areia-2);background:#fff;cursor:pointer;color:var(--cafe);display:grid;place-items:center;transition:.2s}
+  .setas button:hover{background:var(--terracota);color:#fff;border-color:var(--terracota)}
+  .trilho{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+  .trilho::-webkit-scrollbar{display:none}
+  .depo-card{flex:0 0 calc(50% - 10px);scroll-snap-align:start;background:var(--areia);border-radius:24px;padding:34px;display:flex;flex-direction:column;min-height:300px}
+  .depo-card.foto{padding:0;overflow:hidden;position:relative}
+  .depo-card.foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+  .depo-card.foto span{position:absolute;left:18px;bottom:18px;background:rgba(251,247,236,.94);border-radius:999px;font-size:13px;padding:7px 14px}
+  .aspas{font-family:var(--serif);font-size:70px;line-height:.6;color:var(--dourado);height:34px}
+  .depo-card blockquote{font-family:var(--serif);font-size:27px;line-height:1.25;color:var(--cafe);margin:18px 0 28px}
+  .depo-card .quem{margin-top:auto;display:flex;align-items:center;gap:12px;font-size:14px}
+  .depo-card .quem i{width:40px;height:40px;border-radius:50%;background:var(--dourado-claro);display:grid;place-items:center;font-style:normal;color:#fff;font-weight:600}
+  .depo-card .quem b{display:block;color:var(--cafe)}
+  .depo-card .quem small{color:var(--suave)}
+
+  /* FAQ */
+  .faq{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:56px;align-items:start}
+  details{border-bottom:1px solid var(--areia-2);padding:22px 4px}
+  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-size:18px;color:var(--cafe);font-weight:500}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:24px;line-height:1;color:var(--terracota);transition:.3s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{margin-top:12px;color:var(--suave);font-size:15px;max-width:520px}
+  .faq-foto{border-radius:var(--raio);overflow:hidden;aspect-ratio:1/1}
+  .faq-foto img{width:100%;height:100%;object-fit:cover}
+
+  /* CTA */
+  .cta{background:var(--cafe);border-radius:var(--raio);padding:96px 40px;text-align:center;color:var(--areia);position:relative;overflow:hidden}
+  .cta h2{color:#fff}
+  .cta h2 em{color:var(--dourado-claro)}
+  .cta p{max-width:480px;margin:18px auto 34px;opacity:.8}
+  .cta .aneis{position:absolute;right:-180px;bottom:-260px;width:620px;height:620px;border-radius:50%;border:1px solid rgba(217,191,143,.25);box-shadow:0 0 0 60px rgba(217,191,143,.04),0 0 0 120px rgba(217,191,143,.03)}
+  .cta .madu{width:62px;height:62px;border-radius:50%;object-fit:cover;object-position:top;margin:36px auto 0;border:3px solid var(--dourado)}
+
+  /* FOOTER */
+  footer{padding:70px 0 40px}
+  .foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
+  .foot img{height:52px;width:auto;margin-bottom:20px}
+  .foot p,.foot li{font-size:14px;color:var(--suave)}
+  .foot h4{font-size:14px;color:var(--cafe);margin-bottom:16px;font-weight:600}
+  .foot ul{list-style:none;display:grid;gap:10px}
+  .foot a:hover{color:var(--terracota)}
+  .redes{display:flex;gap:10px;margin-top:20px}
+  .redes a{width:38px;height:38px;border-radius:50%;background:var(--areia);display:grid;place-items:center;color:var(--terracota);transition:.2s}
+  .redes a:hover{background:var(--terracota);color:#fff}
+  .redes svg{width:17px;height:17px}
+  .copy{border-top:1px solid var(--areia-2);margin-top:50px;padding-top:26px;display:flex;justify-content:space-between;font-size:13px;color:var(--suave)}
+
+  /* WhatsApp flutuante */
+  .zap{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 10px 25px rgba(0,0,0,.18);transition:.25s}
+  .zap:hover{transform:scale(1.08)}
+  .zap svg{width:30px;height:30px}
+
+  /* animação de entrada */
+  .rev{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+  .rev.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.rev{opacity:1;transform:none}.selo svg{animation:none}}
+
+  /* RESPONSIVO */
+  @media (max-width:1024px){
+    .hero-grid{grid-template-columns:1fr}
+    .hero-side{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+    .card-foto{grid-row:span 2}
+    .servicos{grid-template-columns:1fr 1fr}
+    .numeros{grid-template-columns:1fr 1fr}
+    .porque{grid-template-columns:1fr}
+    .salas{grid-template-columns:1fr 1fr}
+    .depo{grid-template-columns:1fr}
+    .foot{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:760px){
+    .wrap{width:calc(100% - 32px)}
+    section{padding:72px 0}
+    .nav{height:72px}.nav .logo img{height:38px}
+    .nav ul{display:none;position:absolute;top:72px;left:0;right:0;background:var(--creme);flex-direction:column;gap:0;padding:8px 16px 20px;border-bottom:1px solid var(--areia-2)}
+    .nav ul.aberto{display:flex}
+    .nav ul a{display:block;padding:14px 0;border-bottom:1px solid var(--areia)}
+    .nav .btn{display:none}
+    .menu-btn{display:block}
+    .hero-main{flex-direction:column;min-height:0}
+    .hero-main .txt{width:100%;padding:30px 26px 32px}
+    .hero-main .foto{position:relative;order:-1;width:100%;height:460px}
+    .hero-main .foto img{width:100%;margin-left:0;object-position:50% 12%}
+    .hero-main .foto::before{background:linear-gradient(0deg,#F1E6D3 0%,rgba(241,230,211,0) 28%)}
+    .selo{left:auto;right:20px;top:416px;bottom:auto;transform:none;width:88px;height:88px}
+    .chips{margin-top:8px}
+    .hero-side{grid-template-columns:1fr}
+    .card-foto{grid-row:auto}
+    .sobre-top{grid-template-columns:1fr;gap:24px}
+    .galeria{padding:0 16px;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory}
+    .galeria figure{flex:0 0 62%;height:340px!important;scroll-snap-align:center}
+    .servicos{grid-template-columns:1fr}
+    .servico .ic{margin-bottom:26px}
+    .numeros{padding:44px 28px;gap:34px 20px}
+    .numeros b{font-size:46px}
+    .difs{grid-template-columns:1fr;padding:30px 26px}
+    .porque-foto{min-height:460px}
+    .consultorio{padding:56px 22px}
+    .salas{gap:14px}
+    .sala h3{font-size:15px}.sala p{font-size:13px}
+    .depo-card{flex-basis:88%}
+    .depo-card blockquote{font-size:23px}
+    .faq{grid-template-columns:1fr;gap:36px}
+    .faq-foto{order:-1;aspect-ratio:16/11}
+    .cta{padding:64px 22px}
+    .foot{grid-template-columns:1fr}
+    .copy{flex-direction:column;gap:8px}
+  }
+</style>
+</head>
+<body>
+
+<header id="topo">
+  <nav class="wrap nav">
+    <a href="#" class="logo" aria-label="Madu Alves Nutricionista"><img src="img/logo.png" alt="Madu Alves Nutricionista"></a>
+    <ul id="menu">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#atendimento">Atendimento</a></li>
+      <li><a href="#diferenciais">Diferenciais</a></li>
+      <li><a href="#consultorio">Consultório</a></li>
+      <li><a href="#duvidas">Dúvidas</a></li>
+    </ul>
+    <a class="btn" href="https://wa.me/5561991025865?text=Ol%C3%A1%2C%20Madu!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">Agendar consulta
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    <button class="menu-btn" aria-label="Abrir menu" onclick="document.getElementById('menu').classList.toggle('aberto')">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-main rev">
+        <div class="txt">
+          <span class="eyebrow">Nutrição clínica e esportiva</span>
+          <h1>Nutrição baseada em <em>ciência</em>, feita para a sua rotina</h1>
+          <p>Estratégias individuais para emagrecimento, hipertrofia e performance, com acompanhamento semanal de verdade. Presencial na Asa Norte ou online.</p>
+          <div><a class="btn" href="https://wa.me/5561991025865?text=Ol%C3%A1%2C%20Madu!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">Agendar minha consulta
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+          <div class="chips">
+            <span class="chip">Emagrecimento</span><span class="chip">Hipertrofia</span>
+            <span class="chip">Performance</span><span class="chip">Saúde</span>
+          </div>
+        </div>
+        <div class="foto"><img src="img/madu-hero.jpg" alt="Nutricionista Madu Alves de blazer branco"></div>
+        <div class="selo" aria-hidden="true">
+          <svg viewBox="0 0 104 104"><defs><path id="circ" d="M52,52 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs>
+            <text font-family="DM Sans" font-size="8" fill="#AE6945"><textPath href="#circ" textLength="248" lengthAdjust="spacing">NUTRIÇÃO • CIÊNCIA • INDIVIDUALIDADE •</textPath></text></svg>
+          <img src="img/monograma.png" alt="">
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="card card-nota rev">
+          <div class="avatares">
+            <div class="fotos">
+              <span style="background-image:url(img/madu-paciente.jpg)"></span>
+              <span style="background-image:url(img/madu-consultorio.jpg)"></span>
+              <span style="background-image:url(img/madu-hero.jpg)"></span>
+            </div>
+            <div><div class="estrelas">★★★★★</div><strong>Nota 5,0 no Google</strong></div>
+          </div>
+          <p>“Nutri nota 1000, recomendo de olhos fechados.” Avaliação de paciente</p>
+        </div>
+        <div class="card card-foto rev">
+          <img src="img/sala-espera.jpg" alt="Sala de espera do consultório, estilo Japandi">
+          <span>Consultório na Asa Norte</span>
+        </div>
+        <div class="card card-escuro rev">
+          <div><b>+10 mil</b><small>pessoas acompanham a Madu no Instagram</small></div>
+          <div><b>1x/sem</b><small>feedback e ajustes no seu plano</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" style="padding-bottom:90px">
+    <div class="wrap sobre-top">
+      <div class="rev">
+        <span class="eyebrow">Prazer, sou a Madu</span>
+        <h2>Cuidado <em>individual</em>, do plano ao resultado</h2>
+      </div>
+      <div class="rev">
+        <p class="lead">Sou Maria Eduarda Alves, nutricionista clínica e esportiva em Brasília. Acredito numa nutrição prática, sem modismos e sem exames desnecessários: um plano pensado para a sua rotina, com ajustes semanais para você manter a constância e ver resultado de verdade.</p>
+        <div class="assinatura">
+          <img src="img/madu-consultorio.jpg" alt="">
+          <div><b>Maria Eduarda Alves</b><small>Nutricionista · CRN-1 00000</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="galeria rev">
+      <figure><img src="img/entrada-predio.jpg" alt="Entrada do prédio do consultório"></figure>
+      <figure><img src="img/sala-atendimento.jpg" alt="Sala de atendimento"></figure>
+      <figure><img src="img/madu-consultorio.jpg" alt="Madu no consultório"></figure>
+      <figure><img src="img/detalhe-bandeja.jpg" alt="Detalhe da recepção"></figure>
+      <figure><img src="img/recepcao-mimos.jpg" alt="Mimos na recepção"></figure>
+    </div>
+  </section>
+
+  <!-- ATENDIMENTO -->
+  <section id="atendimento" style="padding-top:40px">
+    <div class="wrap">
+      <div class="center rev">
+        <span class="eyebrow">Atendimento</span>
+        <h2>Como posso te <em>ajudar</em></h2>
+        <p class="lead" style="margin-top:16px">Presencial em Brasília ou online, de qualquer lugar. Seu plano é montado do zero para o seu objetivo.</p>
+      </div>
+      <div class="servicos">
+        <article class="servico rev">
+          <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M24 6c-6 8-12 13-12 21a12 12 0 0 0 24 0c0-8-6-13-12-21Z"/><path d="M19 30a5 5 0 0 0 5 5"/></svg>
+          <h3>Emagrecimento</h3>
+          <p>Perda de gordura com estratégia, sem dietas restritivas e sem passar fome. Comida de verdade, adaptada à sua rotina.</p>
+        </article>
+        <article class="servico rev">
+          <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 20v8M14 15v18M34 15v18M40 20v8M14 24h20"/></svg>
+          <h3>Hipertrofia</h3>
+          <p>Ganho de massa muscular com ajuste fino de proteínas, calorias e horários para potencializar o seu treino.</p>
+        </article>
+        <article class="servico rev">
+          <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="24" cy="24" r="16"/><path d="M24 8v32M8 24h32" opacity=".5"/><path d="M14 14c6 4 14 4 20 0M14 34c6-4 14-4 20 0"/></svg>
+          <h3>Recomposição corporal</h3>
+          <p>Perder gordura e ganhar músculo ao mesmo tempo, com metas claras e acompanhamento da evolução.</p>
+        </article>
+        <article class="servico rev">
+          <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 30h9l5-14 8 22 5-12h9"/></svg>
+          <h3>Performance esportiva</h3>
+          <p>Nutrição para quem treina e compete: energia, recuperação e rendimento em cada fase da preparação.</p>
+        </article>
+        <article class="servico rev">
+          <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M24 40S8 31 8 19a8 8 0 0 1 16-2 8 8 0 0 1 16 2c0 12-16 21-16 21Z"/></svg>
+          <h3>Saúde e longevidade</h3>
+          <p>Nutrição clínica para mais disposição, melhores exames e uma relação mais leve com a comida.</p>
+        </article>
+        <article class="servico rev">
+          <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="10" width="34" height="22" rx="3"/><path d="M17 38h14M24 32v6"/></svg>
+          <h3>Atendimento online</h3>
+          <p>A mesma consulta completa, por videochamada, com plano digital e suporte para você estar onde estiver.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NÚMEROS -->
+  <div class="wrap">
+    <div class="numeros rev">
+      <div><b>5,0</b><small>de nota nas avaliações do Google</small></div>
+      <div><b>+10 mil</b><small>seguidores acompanhando conteúdo de nutrição</small></div>
+      <div><b>100%</b><small>dos planos montados de forma individual</small></div>
+      <div><b>7 dias</b><small>entre cada feedback e ajuste do seu plano</small></div>
+    </div>
+  </div>
+
+  <!-- DIFERENCIAIS -->
+  <section id="diferenciais">
+    <div class="wrap porque">
+      <div class="porque-txt rev">
+        <span class="eyebrow">Diferenciais</span>
+        <h2>Por que escolher a <em>Madu</em></h2>
+        <p class="lead" style="margin-top:16px">Coisas nada óbvias que você vai ter sendo minha paciente.</p>
+        <div class="difs">
+          <div class="dif">
+            <svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="5" width="20" height="23" rx="2"/><path d="M11 12h10M11 17h10M11 22h6"/></svg>
+            <h3>Mapa de adesão</h3><p>Você anota o que fugiu do plano e eu avalio o que podemos ajustar.</p>
+          </div>
+          <div class="dif">
+            <svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="7" width="22" height="20" rx="2"/><path d="M5 13h22M11 4v6M21 4v6"/></svg>
+            <h3>Assistência semanal</h3><p>Formulário semanal de peso, adesão e satisfação com o plano.</p>
+          </div>
+          <div class="dif">
+            <svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 4h10l6 6v18H9z"/><path d="M19 4v6h6M13 17l3 3 5-6"/></svg>
+            <h3>Relatório pós-consulta</h3><p>Pontos discutidos, metas da próxima etapa e a estrutura de cada refeição.</p>
+          </div>
+          <div class="dif">
+            <svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 27c6-4 9-9 9-14a9 9 0 0 0-18 0c0 5 3 10 9 14Z"/><path d="M16 9v12M12 14l4 3 4-3"/></svg>
+            <h3>Baseada em evidências</h3><p>Sem modismos e sem exames desnecessários. Só o que realmente funciona.</p>
+          </div>
+          <div class="dif">
+            <svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 20h22v3a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3zM8 20v-6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6"/></svg>
+            <h3>Ambiente acolhedor</h3><p>Consultório em estilo Japandi: minimalista e aconchegante, para uma experiência leve.</p>
+          </div>
+          <div class="dif">
+            <svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 14h18v4a9 9 0 0 1-18 0zM25 15h2a3 3 0 0 1 0 6h-3M12 5c0 2 2 2 2 4M17 5c0 2 2 2 2 4"/></svg>
+            <h3>Recepção com mimos</h3><p>Um cuidado em cada detalhe, desde o momento em que você chega.</p>
+          </div>
+        </div>
+      </div>
+      <div class="porque-foto rev">
+        <img src="img/madu-consultorio.jpg" alt="Madu Alves no consultório">
+        <div class="tag"><img src="img/monograma.png" alt=""><p><b>Praticidade e individualidade.</b> Um plano que cabe na sua vida, e não o contrário.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSULTÓRIO -->
+  <section id="consultorio" style="padding-top:0">
+    <div class="wrap">
+      <div class="consultorio">
+        <div class="center rev">
+          <span class="eyebrow">O espaço</span>
+          <h2>Conheça o <em>consultório</em></h2>
+          <p class="lead" style="margin-top:16px">Um ambiente pensado para você se sentir em casa: minimalismo, luz natural e aconchego.</p>
+        </div>
+        <div class="salas">
+          <div class="sala rev"><figure><img src="img/sala-espera.jpg" alt="Sala de espera"></figure><h3>Sala de espera</h3><p>Conforto desde a chegada</p></div>
+          <div class="sala rev"><figure><img src="img/sala-atendimento.jpg" alt="Sala de atendimento"></figure><h3>Sala de atendimento</h3><p>Privacidade e acolhimento</p></div>
+          <div class="sala rev"><figure><img src="img/recepcao-mimos.jpg" alt="Recepção com mimos"></figure><h3>Recepção com mimos</h3><p>Um carinho em cada detalhe</p></div>
+          <div class="sala rev"><figure><img src="img/fachada.jpg" alt="Fachada do Edifício Carlton Center"></figure><h3>Carlton Center</h3><p>Fácil acesso na Asa Norte</p></div>
+        </div>
+        <div class="endereco rev">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>SEPN 516, Coworking HOF, Edifício Carlton Center, Asa Norte, Brasília-DF</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section style="padding-top:20px">
+    <div class="wrap depo">
+      <div class="rev">
+        <span class="eyebrow">Depoimentos</span>
+        <h2>Quem viveu, <em>recomenda</em></h2>
+        <p class="lead" style="margin-top:16px">O que os pacientes dizem sobre o acompanhamento.</p>
+        <div class="setas">
+          <button aria-label="Anterior" onclick="rolar(-1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button aria-label="Próximo" onclick="rolar(1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="trilho rev" id="trilho">
+        <div class="depo-card">
+          <div class="aspas">“</div>
+          <blockquote>A Madu é uma pessoa iluminada e uma profissional incrível!</blockquote>
+          <div class="quem"><i>P</i><div><b>Paciente</b><small>Avaliação no Google</small></div></div>
+        </div>
+        <div class="depo-card foto">
+          <img src="img/madu-paciente.jpg" alt="Madu com paciente">
+          <span>Madu com paciente</span>
+        </div>
+        <div class="depo-card">
+          <div class="aspas">“</div>
+          <blockquote>Nutri nota 1000, recomendo de olhos fechados.</blockquote>
+          <div class="quem"><i>P</i><div><b>Paciente</b><small>Avaliação no Google</small></div></div>
+        </div>
+        <div class="depo-card">
+          <div class="aspas">“</div>
+          <blockquote>Excelente, com flexibilidade pra atendimentos presenciais e on-line.</blockquote>
+          <div class="quem"><i>P</i><div><b>Paciente</b><small>Avaliação no Google</small></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="duvidas" style="padding-top:40px">
+    <div class="wrap">
+      <div class="center rev">
+        <span class="eyebrow">Dúvidas</span>
+        <h2>Perguntas <em>frequentes</em></h2>
+      </div>
+      <div class="faq">
+        <div class="rev">
+          <details open><summary>Como funciona a primeira consulta?</summary><p>Conversamos sobre seu histórico, rotina, preferências e objetivos, e fazemos a avaliação corporal. A partir disso, eu monto um plano individual e te envio com o relatório pós-consulta.</p></details>
+          <details><summary>Você atende online?</summary><p>Sim! O atendimento online tem a mesma estrutura do presencial, por videochamada, com plano digital e acompanhamento semanal.</p></details>
+          <details><summary>Como é o acompanhamento semanal?</summary><p>Toda semana você preenche um formulário rápido com peso, adesão e satisfação com o plano. Eu avalio e faço os ajustes necessários.</p></details>
+          <details><summary>Onde fica o consultório?</summary><p>No Coworking HOF, Edifício Carlton Center, SEPN 516, Asa Norte, Brasília-DF.</p></details>
+          <details><summary>Como faço para agendar?</summary><p>É só chamar no WhatsApp (61) 99102-5865. Te passo os horários disponíveis e os valores.</p></details>
+        </div>
+        <div class="faq-foto rev"><img src="img/detalhe-bandeja.jpg" alt="Detalhe do consultório"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="cta rev">
+        <div class="aneis"></div>
+        <h2>Comece sua <em>transformação</em></h2>
+        <p>Agende sua consulta e receba um plano feito para você, com acompanhamento de perto em cada etapa.</p>
+        <a class="btn claro" href="https://wa.me/5561991025865?text=Ol%C3%A1%2C%20Madu!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">Agendar pelo WhatsApp
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <img class="madu" src="img/madu-hero.jpg" alt="Madu Alves">
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img src="img/logo.png" alt="Madu Alves Nutricionista">
+        <p>Nutrição baseada em ciência para emagrecimento, hipertrofia, performance e saúde.</p>
+        <div class="redes">
+          <a href="https://www.instagram.com/madualvesnutri/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+          <a href="https://wa.me/5561991025865" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3Z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul><li><a href="#sobre">Sobre</a></li><li><a href="#atendimento">Atendimento</a></li><li><a href="#diferenciais">Diferenciais</a></li><li><a href="#consultorio">Consultório</a></li></ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul><li><a href="https://wa.me/5561991025865" target="_blank" rel="noopener">(61) 99102-5865</a></li><li><a href="https://www.instagram.com/madualvesnutri/" target="_blank" rel="noopener">@madualvesnutri</a></li><li>Atendimento com hora marcada</li></ul>
+      </div>
+      <div>
+        <h4>Endereço</h4>
+        <ul><li>SEPN 516, Coworking HOF</li><li>Edifício Carlton Center</li><li>Asa Norte, Brasília-DF</li></ul>
+      </div>
+    </div>
+    <div class="copy"><span>© 2026 Madu Alves Nutricionista · CRN-1 00000</span><span>Atendimento presencial e online</span></div>
+  </div>
+</footer>
+
+<a class="zap" href="https://wa.me/5561991025865?text=Ol%C3%A1%2C%20Madu!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3Z"/></svg>
+</a>
+
+<script>
+  // entrada suave ao rolar
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll('.rev').forEach(el => io.observe(el));
+  // borda no header ao rolar
+  const topo = document.getElementById('topo');
+  addEventListener('scroll', () => topo.classList.toggle('rolou', scrollY > 10), { passive: true });
+  // fecha menu mobile ao clicar
+  document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => document.getElementById('menu').classList.remove('aberto')));
+  // carrossel de depoimentos
+  function rolar(d) { const t = document.getElementById('trilho'); t.scrollBy({ left: d * t.clientWidth / 2, behavior: 'smooth' }); }
+</script>
+</body>
+</html>
